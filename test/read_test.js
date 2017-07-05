@@ -10,7 +10,7 @@ describe('Reading users out of the database', () => {
       .then(() => done());
   });
 
-  it('Finds all users with the name of Joe', (done) => {
+  it('finds all users with the name of Joe', (done) => {
     User.find({name: 'joe'})
       .then((users) => {
         assert(String(joe._id) === String(users[0]._id));
@@ -18,7 +18,7 @@ describe('Reading users out of the database', () => {
       });
   });
 
-  it('Finds a single user with the name of Joe', (done) => {
+  it('finds a single user with the name of Joe', (done) => {
     User.findOne({_id: joe._id})
       .then((user) => {
         assert(user.name === joe.name);
