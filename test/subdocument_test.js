@@ -13,12 +13,13 @@ describe('Subdocuments', () => {
       .then(() => User.findOne({name: 'joe'}))
       .then((user) => {
         user.posts.push({title: 'New post title'});
-        user.save()
-          .then((user) => {
-            assert(user.posts[0].title === 'New post title'); 
-            done()
-          });
-      });
+        return user.save()
+      })
+      .then(() => User.findOne({name: 'joe'}))
+        .then((user) => {
+          assert(user.posts[0].title === 'New post title'); 
+          done()
+        });
   });
 
   it('can remove an existing subdocument', (done) => {

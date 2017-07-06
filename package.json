@@ -12,6 +12,7 @@
   "dependencies": {
     "mocha": "^3.4.2",
     "mongoose": "^4.11.1",
+    "mongoose-unique-validator": "^1.0.5",
     "nodemon": "^1.11.0"
   }
 }
